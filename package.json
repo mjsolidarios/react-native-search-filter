@@ -1,7 +1,7 @@
 {
   "name": "react-native-fuzzy-search",
   "version": "0.0.1",
-  "description": "",
+  "description": "(WIP) Modified version of react-search-input (https://github.com/enkidevs/react-search-input) to work with react-native.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,8 +24,8 @@
     "javascript",
     "react-component"
   ],
-  "author": "mjsolidarios <markjoseph.solidarios@gmail.com>",
-  "license": "",
+  "author": "mjsolidarios <markjoseph.solidarios@gmail.com> <https://github.com/mjsolidarios>",
+  "license": "MIT",
   "peerDependencies": {
     "react-native": "^0.41.2"
   },
