@@ -1,6 +1,6 @@
 {
-  "name": "react-native-search-input",
-  "version": "1.0.0",
+  "name": "react-native-fuzzy-search",
+  "version": "0.0.1",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "javascript",
     "react-component"
   ],
-  "author": "",
+  "author": "mjsolidarios <markjoseph.solidarios@gmail.com>",
   "license": "",
   "peerDependencies": {
     "react-native": "^0.41.2"
