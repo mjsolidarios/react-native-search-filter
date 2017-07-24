@@ -4214,6 +4214,12 @@ react-native-scripts@0.0.50:
     qrcode-terminal "^0.11.0"
     xdl "42.4.0"
 
+react-native-search-filter@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-search-filter/-/react-native-search-filter-0.1.0.tgz#95f1c04f7a229abbad83ad45d4ae1578e10299ef"
+  dependencies:
+    fuse.js "^3.0.5"
+
 "react-native-svg@https://github.com/expo/react-native-svg/archive/5.2.0-exp.0.tar.gz":
   version "5.2.0"
   resolved "https://github.com/expo/react-native-svg/archive/5.2.0-exp.0.tar.gz#8bcf93483cda9a1c96d42c48fcdfbd2b999f4996"

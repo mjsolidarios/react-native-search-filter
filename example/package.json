@@ -25,6 +25,7 @@
     "expo": "^18.0.3",
     "fuse.js": "^3.0.5",
     "react": "16.0.0-alpha.12",
-    "react-native": "^0.45.1"
+    "react-native": "^0.45.1",
+    "react-native-search-filter": "^0.1.0"
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import SearchInput, { createFilter } from './lib/'
+import SearchInput, { createFilter } from 'react-native-search-filter'
 import emails from './mails'
 const KEYS_TO_FILTERS = ['user.name', 'subject']
 

@@ -1,6 +1,6 @@
 {
   "name": "react-native-search-filter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React Native search component with filter function.",
   "main": "src/index.js",
   "scripts": {
