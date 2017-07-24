@@ -5,7 +5,7 @@ React Native search component with filter function.
 
 ![](https://media.giphy.com/media/l3JDnn1QT0ANhltKw/giphy.gif)
 
-## Getting started
+## Getting Started
 
 ### Installation
 `$ npm install react-native-search-filter --save`
@@ -75,32 +75,32 @@ const styles = StyleSheet.create({
 All props are optional. All other props will be passed to React Native's ```TextInput``` component.
 
 
-### onChangeText
+### ```onChangeText```
 Function called when the search term is changed (will be passed as an argument).
 
-### filterKeys
+### ```filterKeys```
 
 Either an ```[String]``` or a String. Will be use by the filter method if no argument is passed there.
 
-### throttle
+### ```throttle```
 
 Reduce call frequency to the onChange function (in ms). Default is ```200```.
 
-### caseSensitive
+### ```caseSensitive```
 
 Define if the search should be case sensitive. Default is ```false```.
 
-### fuzzy
+### ```fuzzy```
 
 Define if the search should be fuzzy. Default is ```false```.
 
-### sortResults
+### ```sortResults```
 
 Define if search results should be sorted by relevance (only works with fuzzy search). Default is ```false```.
 
-## Methods
+### Methods
 
-### filter([keys])
+### ```filter([keys])```
 
 Return a function which can be used to filter an array. keys can be String, ```[String]``` or ```null```.
 
