@@ -3,6 +3,8 @@
 
 React Native search component with filter function.
 
+![](https://media.giphy.com/media/l3JDnn1QT0ANhltKw/giphy.gif)
+
 ## Getting started
 
 ### Installation

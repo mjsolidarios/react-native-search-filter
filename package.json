@@ -1,6 +1,6 @@
 {
   "name": "react-native-search-filter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "React Native search component with filter function.",
   "main": "src/index.js",
   "scripts": {
@@ -13,6 +13,10 @@
     "jest-expo": "~18.0.0",
     "react-native-scripts": "0.0.50",
     "react-test-renderer": "16.0.0-alpha.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjsolidarios/react-native-search-filter"
   },
   "keywords": [
     "react-native",
