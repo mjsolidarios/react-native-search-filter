@@ -72,9 +72,6 @@ export default class SearchInput extends Component{
   }
 }
 
-
-
-
 SearchInput.propTypes = {
     onChange: PropTypes.func,
     caseSensitive: PropTypes.bool,

@@ -1,7 +1,7 @@
 {
-  "name": "react-native-fuzzy-search",
+  "name": "react-native-search-filter",
   "version": "0.0.1",
-  "description": "(WIP) Modified version of react-search-input (https://github.com/enkidevs/react-search-input) to work with react-native.",
+  "description": "React Native search component with filter function.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

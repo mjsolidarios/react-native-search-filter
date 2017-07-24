@@ -1,57 +1,50 @@
 export default [{
   id: 1,
   user: {
-    name: 'Mathieu',
-    job: 'Software Engineer',
-    company: 'Enki'
+    name: 'Juniper',
   },
-  subject: 'Hi!',
-  dest: [
-    {
-      name: 'Bruno',
-      job: 'CTO',
-      company: 'Enki'
-    },
-    {
-      name: 'Arseny',
-      job: 'Software Engineer',
-      company: 'Enki'
-    }
-  ]
+  subject: 'Hello World!',
 }, {
   id: 2,
   user: {
-    name: 'Bruno'
+    name: 'Robert'
   },
-  subject: 'javascript',
-  dest: [
-    {
-      name: 'Mathieu',
-      job: 'CTO',
-      company: 'Enki'
-    },
-    {
-      name: 'Arseny',
-      job: 'Software Engineer',
-      company: 'Enki'
-    }
-  ]
+  subject: 'React is <3',
 }, {
   id: 3,
   user: {
     name: 'you can search for me using a regex : `java$`'
   },
-  subject: 'java',
-  dest: [
-    {
-      name: 'Bruno',
-      job: 'CTO',
-      company: 'Enki'
-    },
-    {
-      name: 'Arseny',
-      job: 'Software Engineer',
-      company: 'Enki'
-    }
-  ]
+  subject: "What's Up?",
+}
+  , {
+  id: 4,
+  user: {
+    name: 'Georgia'
+  },
+  subject: 'How are you today?',
+}, {
+  id: 5,
+  user: {
+    name: 'Albert'
+  },
+  subject: 'Hey!',
+}, {
+  id: 6,
+  user: {
+    name: 'Zoey'
+  },
+  subject: 'React Native!',
+}, {
+  id: 7,
+  user: {
+    name: 'Cody'
+  },
+  subject: 'is super!',
+}, {
+  id: 8,
+  user: {
+    name: 'Chili'
+  },
+  subject: 'Awesome!',
 }]
