@@ -114,5 +114,10 @@ Return a function which can be used to filter an array. searchTerm can be a rege
 
 If an array keys is an array, the function will return true if at least one of the keys of the item matches the search term.
 
+## Fuse.js: Unknown plugin "babel-plugin-add-module-exports"
+Add ```babel-plugin-add-module-exports``` as a dev dependency. Fuse.js [#154](https://github.com/krisk/Fuse/issues/154).
+
+```npm i babel-plugin-add-module-exports babel-preset-es2015 babel-preset-stage-2 --save-dev```
+
 ## Acknowledgement
 enkidevs - [Simple react.js component for a search input, providing a filter function ](https://github.com/enkidevs/react-search-input).
