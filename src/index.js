@@ -1,7 +1,8 @@
 
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { TextInput } from 'react-native'
 import { createFilter } from './util'
+import PropTypes from 'prop-types';
 
 export default class SearchInput extends Component{
 
