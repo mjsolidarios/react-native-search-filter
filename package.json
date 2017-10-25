@@ -11,6 +11,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "jest-expo": "~18.0.0",
+    "prop-types": "^15.5.10",
     "react-native-scripts": "0.0.50",
     "react-test-renderer": "16.0.0-alpha.12"
   },
