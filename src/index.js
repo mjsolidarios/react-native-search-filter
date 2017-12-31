@@ -1,11 +1,13 @@
-
 import React, { Component } from 'react'
-import { TextInput } from 'react-native'
+import {
+  TextInput,
+  View,
+  TouchableOpacity,
+} from 'react-native'
+import PropTypes from 'prop-types'
 import { createFilter } from './util'
-import PropTypes from 'prop-types';
 
-export default class SearchInput extends Component{
-
+export default class SearchInput extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -14,36 +16,72 @@ export default class SearchInput extends Component{
   }
 
   static defaultProps = {
-    onChange () {},
+    onChange: () => {},
     caseSensitive: false,
     fuzzy: false,
-    throttle: 200
+    throttle: 200,
+    inputClearIcon: null,
+    textInputViewStyles: {},
   }
 
   componentWillReceiveProps (nextProps) {
     if (typeof nextProps.value !== 'undefined' && nextProps.value !== this.props.value) {
       const e = {
         target: {
-          value: nextProps.value
+          value: nextProps.value,
         }
       }
       this.updateSearch(e)
     }
   }
 
+  renderClearIcon() {
+    if (!this.props.inputClearIcon) { return null }
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          this.props.onChangeText('')
+          this.input.clear()
+        }}
+        style={{
+          position: 'absolute',
+          top: 18,
+          right: 22,
+        }}
+      >
+        {this.props.inputClearIcon}
+      </TouchableOpacity>
+    )
+  }
+
   render () {
-    const {style, onChange, caseSensitive, sortResults, throttle, filterKeys, value, fuzzy, ...inputProps} = this.props // eslint-disable-line no-unused-vars
+    const {
+      style,
+      onChange,
+      caseSensitive,
+      sortResults,
+      throttle,
+      filterKeys,
+      value,
+      fuzzy,
+      ...inputProps,
+    } = this.props // eslint-disable-line no-unused-vars
+
     inputProps.type = inputProps.type || 'search'
     inputProps.value = this.state.searchTerm
     inputProps.onChange = this.updateSearch.bind(this)
     inputProps.placeholder = inputProps.placeholder || 'Search'
-    return (
 
-      <TextInput
-        style={style}
-        {...inputProps}  // Inherit any props passed to it; e.g., multiline, numberOfLines below
-        underlineColorAndroid={'rgba(0,0,0,0)'}
-      />
+    return (
+      <View style={this.props.textInputViewStyles}>
+        <TextInput
+          style={style}
+          {...inputProps}  // Inherit any props passed to it; e.g., multiline, numberOfLines below
+          underlineColorAndroid={'rgba(0,0,0,0)'}
+          ref={(input) => { this.input = input }}
+        />
+        {this.renderClearIcon()}
+      </View>
     )
   }
 
@@ -73,9 +111,6 @@ export default class SearchInput extends Component{
   }
 }
 
-
-
-
 SearchInput.propTypes = {
     onChange: PropTypes.func,
     caseSensitive: PropTypes.bool,
@@ -86,7 +121,9 @@ SearchInput.propTypes = {
       PropTypes.string,
       PropTypes.arrayOf(PropTypes.string)
     ]),
-    value: PropTypes.string
+    value: PropTypes.string,
+    inputClearIcon: PropTypes.node,
+    textInputViewStyles: PropTypes.object,
   }
 
 export { createFilter }
