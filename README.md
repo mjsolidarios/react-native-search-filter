@@ -78,34 +78,19 @@ const styles = StyleSheet.create({
 });
 ```
 
-## API Documentation
+## API and Configuration
 
-### Props
-
-All props are optional. All other props will be passed to React Native's ```TextInput``` component.
-
-#### ```onChangeText```
-Function called when the search term is changed (will be passed as an argument).
-
-#### ```filterKeys```
-
-Either an ```[String]``` or a String. Will be use by the filter method if no argument is passed there.
-
-#### ```throttle```
-
-Reduce call frequency to the onChange function (in ms). Default is ```200```.
-
-#### ```caseSensitive```
-
-Define if the search should be case sensitive. Default is ```false```.
-
-##### ```fuzzy```
-
-Define if the search should be fuzzy. Default is ```false```.
-
-#### ```sortResults```
-
-Define if search results should be sorted by relevance (only works with fuzzy search). Default is ```false```.
+| Property | Type | Default | Description |
+|-------------|----------|--------------|----------------------------------------------------------------|
+|```caseSensitive```|```boolean```|```false```|Define if the search should be case sensitive.|
+|```clearIcon```|```Node```|```null```|Optional clear icon. |
+|```clearIconViewStyles```|```Style```|```{position:absolute',top: 18,right: 22}```|Optional styles for the clear icon view.|
+|```filterKeys```|```string``` or ```[string]```||Will be use by the filter method if no argument is passed there.|
+|```fuzzy```|```boolean```|```false```|Define if the search should be fuzzy.|
+|```inputViewStyles```| ```Style``` | |Optional styles for the input container. |
+| ```onChangeText``` | ```Function``` | Required| Function called when the search term is changed (will be passed as an argument).
+|```sortResults```|```boolean```|```false```|Define if search results should be sorted by relevance (only works with fuzzy search).|
+|```throttle```|```number```|```200```|Reduce call frequency to the onChange function (in ms).|
 
 #### ```inputClearIcon```
 
@@ -141,7 +126,7 @@ The following values work across platforms:
 
 #### ```filter([keys])```
 
-Return a function which can be used to filter an array. keys can be String, ```[String]``` or ```null```.
+Return a function which can be used to filter an array. keys can be ```string```, ```[string]``` or ```null```.
 
 If an array keys is an array, the function will return true if at least one of the keys of the item matches the search term.
 
@@ -150,11 +135,14 @@ If an array keys is an array, the function will return true if at least one of t
 filter(searchTerm, [keys], [{caseSensitive, fuzzy, sortResults}])
 ```
 
-Return a function which can be used to filter an array. searchTerm can be a regex or a String. keys can be String, ```[String]``` or ```null```.
+Return a function which can be used to filter an array. searchTerm can be a regex or a String. keys can be ```string```, ```[string]``` or ```null```.
 
 If an array keys is an array, the function will return true if at least one of the keys of the item matches the search term.
 
-## Fuse.js: Unknown plugin "babel-plugin-add-module-exports"
+## Known Issues
+### Hide ```clearIcon``` if search input is empty.
+Provided you have a custom icon package, a short toggle method for the property will do: ```clearIcon={this.state.searchTerm!==''&&<Icon name="x"/>}```.
+### Fuse.js: Unknown plugin "babel-plugin-add-module-exports"
 Add ```babel-plugin-add-module-exports``` as a dev dependency. Fuse.js [#154](https://github.com/krisk/Fuse/issues/154).
 
 ```npm i babel-plugin-add-module-exports babel-preset-es2015 babel-preset-stage-2 --save-dev```
