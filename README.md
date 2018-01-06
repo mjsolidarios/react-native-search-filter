@@ -107,6 +107,36 @@ Define if the search should be fuzzy. Default is ```false```.
 
 Define if search results should be sorted by relevance (only works with fuzzy search). Default is ```false```.
 
+#### ```inputClearIcon```
+
+Defines an icon, which is used to clear the input field
+Default is ```null```
+
+#### ```textInputViewStyles```
+
+Defines a View styles object that surrounds the input field
+Default is ```{}```
+
+#### ```onSubmitEditing```
+
+Defines a function for the keyboard search button onPress
+Default is ```() => {}```
+
+#### ```inputFocus```
+
+Defines whether the field receives focus
+Default is ```false```
+
+#### ```returnKeyType```
+
+Determines how the return key should look.
+The following values work across platforms:
+```done```
+```go```
+```next```
+```search```
+```send```
+
 ### Methods
 
 #### ```filter([keys])```

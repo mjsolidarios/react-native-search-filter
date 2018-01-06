@@ -25,6 +25,9 @@ export default class SearchInput extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    if (this.props.inputFocus !== nextProps.inputFocus) {
+      this.input.focus()
+    }
     if (typeof nextProps.value !== 'undefined' && nextProps.value !== this.props.value) {
       const e = {
         target: {
@@ -79,6 +82,8 @@ export default class SearchInput extends Component {
           {...inputProps}  // Inherit any props passed to it; e.g., multiline, numberOfLines below
           underlineColorAndroid={'rgba(0,0,0,0)'}
           ref={(input) => { this.input = input }}
+          returnKeyType={this.props.returnKeyType}
+          onSubmitEditing={this.props.onSubmitEditing}
         />
         {this.renderClearIcon()}
       </View>
@@ -124,6 +129,8 @@ SearchInput.propTypes = {
     value: PropTypes.string,
     inputClearIcon: PropTypes.node,
     textInputViewStyles: PropTypes.object,
+    onSubmitEditing: PropTypes.func,
+    inputFocus: PropTypes.bool,
   }
 
 export { createFilter }
