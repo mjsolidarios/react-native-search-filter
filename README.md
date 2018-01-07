@@ -91,6 +91,9 @@ const styles = StyleSheet.create({
 | ```onChangeText``` | ```Function``` | Required| Function called when the search term is changed (will be passed as an argument).
 |```sortResults```|```boolean```|```false```|Define if search results should be sorted by relevance (only works with fuzzy search).|
 |```throttle```|```number```|```200```|Reduce call frequency to the onChange function (in ms).|
+|```onSubmitEditing```|```function```|```() => {}```|Defines a function for the keyboard search button onPress.|
+|```inputFocus```|```boolean```|```false```|Defines whether the field receives focus.|
+|```returnKeyType```|```string```|```done```|Determines how the return key should look. The following values work across platforms: ```done```, ```go```, ```next```, ```search```, ```send```|
 
 ### Methods
 

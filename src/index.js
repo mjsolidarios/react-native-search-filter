@@ -4,18 +4,12 @@ import {
   View,
   Text,
   TouchableOpacity,
+  Keyboard,
 } from 'react-native'
 import PropTypes from 'prop-types'
 import { createFilter } from './util'
 
 export default class SearchInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchTerm: this.props.value || ''
-    }
-  }
-
   static defaultProps = {
     onChange: () => { },
     caseSensitive: false,
@@ -30,7 +24,27 @@ export default class SearchInput extends Component {
     }
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: this.props.value || '',
+      inputFocus: props.inputFocus,
+    }
+    this._keyboardDidHide = this._keyboardDidHide.bind(this)
+  }
+
+  componentWillMount () {
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
+  }
+
+  componentWillUnmount () {
+    this.keyboardDidHideListener.remove();
+  }
+
   componentWillReceiveProps(nextProps) {    
+    if (this.state.inputFocus !== nextProps.inputFocus) {
+      this.input.focus()
+    }
     if (typeof nextProps.value !== 'undefined' && nextProps.value !== this.props.value) {
       const e = {
         target: {
@@ -41,8 +55,14 @@ export default class SearchInput extends Component {
     }
   }
 
+  _keyboardDidHide() {
+    if (this.state.inputFocus) {
+      this.setState({ inputFocus: false })
+    }
+  }
+
   renderClearIcon() {
-    const { clearIcon, clearIconViewStyles, onChangeText } = this.props;    
+    const { clearIcon, clearIconViewStyles, onChangeText } = this.props
     return clearIcon &&
       <TouchableOpacity
         onPress={() => {
@@ -80,6 +100,8 @@ export default class SearchInput extends Component {
           {...inputProps}  // Inherit any props passed to it; e.g., multiline, numberOfLines below
           underlineColorAndroid={'rgba(0,0,0,0)'}
           ref={(input) => { this.input = input }}
+          returnKeyType={this.props.returnKeyType}
+          onSubmitEditing={this.props.onSubmitEditing}
         />
         {this.renderClearIcon()}
       </View>
@@ -124,8 +146,10 @@ SearchInput.propTypes = {
   ]),
   value: PropTypes.string,
   clearIcon: PropTypes.node,
+  inputViewStyles: PropTypes.object,
+  onSubmitEditing: PropTypes.func,
+  inputFocus: PropTypes.bool,
   clearIconViewStyles: PropTypes.object,
-  inputViewStyles: PropTypes.object
 }
 
 export { createFilter }
