@@ -1,4 +1,5 @@
 import Fuse from 'fuse.js'
+import {remove as removeDiacritics} from 'diacritics'
 
 function flatten (array) {
   return array.reduce((flat, toFlatten) => (
@@ -39,8 +40,11 @@ export function getValuesForKey (key, item) {
   return results.filter(r => typeof r === 'string' || typeof r === 'number')
 }
 
-export function searchStrings (strings, term, {caseSensitive, fuzzy, sortResults} = {}) {
-  strings = strings.map(e => e.toString())
+export function searchStrings (strings, term, {caseSensitive, fuzzy, sortResults, normalize} = {}) {
+  strings = strings.map(e => {
+    const str = e.toString()
+    return normalize && removeDiacritics(str) || str
+  })
 
   try {
     if (fuzzy) {
@@ -77,6 +81,10 @@ export function createFilter (term, keys, options = {}) {
 
     if (!options.caseSensitive) {
       term = term.toLowerCase()
+    }
+
+    if (options.normalize) {
+      term = removeDiacritics(term)
     }
 
     const terms = term.split(' ')
