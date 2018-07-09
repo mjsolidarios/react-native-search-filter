@@ -1,27 +1,23 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import {
-  TextInput,
-  View,
-  Text,
-  TouchableOpacity,
   Keyboard,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native'
-import PropTypes from 'prop-types'
-import { createFilter } from './util'
+
+import { createFilter } from './util';
 
 export default class SearchInput extends Component {
   static defaultProps = {
-    onChange: () => { },
     caseSensitive: false,
-    fuzzy: false,
-    throttle: 200,
     clearIcon: null,
+    clearIconViewStyles: {  position: 'absolute', top: 18,right: 22 },
+    fuzzy: false,
     inputViewStyles: {},
-    clearIconViewStyles: {
-      position: 'absolute',
-      top: 18,
-      right: 22
-    }
+    onChange: () => { },
+    throttle: 200
   }
 
   constructor(props) {
@@ -33,15 +29,15 @@ export default class SearchInput extends Component {
     this._keyboardDidHide = this._keyboardDidHide.bind(this)
   }
 
-  componentWillMount () {
+  componentWillMount() {
     this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.keyboardDidHideListener.remove();
   }
 
-  componentWillReceiveProps(nextProps) {    
+  componentWillReceiveProps(nextProps) {
     if (this.state.inputFocus !== nextProps.inputFocus) {
       this.input.focus()
     }
@@ -77,17 +73,17 @@ export default class SearchInput extends Component {
 
   render() {
     const {
-      style,
-      onChange,
       caseSensitive,
-      sortResults,
-      throttle,
       filterKeys,
-      value,
       fuzzy,
+      onChange,
+      sortResults,
+      style,
+      throttle,
+      value,
       ...inputProps
     } = this.props // eslint-disable-line no-unused-vars
-    const {searchTerm} = this.state;
+    const { searchTerm } = this.state;
 
     inputProps.type = inputProps.type || 'search'
     inputProps.value = searchTerm
@@ -135,21 +131,18 @@ export default class SearchInput extends Component {
 }
 
 SearchInput.propTypes = {
-  onChange: PropTypes.func,
   caseSensitive: PropTypes.bool,
-  sortResults: PropTypes.bool,
-  fuzzy: PropTypes.bool,
-  throttle: PropTypes.number,
-  filterKeys: PropTypes.oneOf([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string)
-  ]),
-  value: PropTypes.string,
   clearIcon: PropTypes.node,
-  inputViewStyles: PropTypes.object,
-  onSubmitEditing: PropTypes.func,
-  inputFocus: PropTypes.bool,
   clearIconViewStyles: PropTypes.object,
+  filterKeys: PropTypes.oneOf([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  fuzzy: PropTypes.bool,
+  inputFocus: PropTypes.bool,
+  inputViewStyles: PropTypes.object,
+  onChange: PropTypes.func,
+  onSubmitEditing: PropTypes.func,
+  sortResults: PropTypes.bool,
+  throttle: PropTypes.number,
+  value: PropTypes.string,
 }
 
 export { createFilter }

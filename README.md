@@ -8,7 +8,14 @@ React Native search component with filter function.
 ## Getting Started
 
 ### Installation
+
+Using `npm`:
+
 `$ npm install react-native-search-filter --save`
+
+Using `yarn`:
+
+`$ yarn add react-native-search-filter`
 
 ### Example Usage
 Complete example available [here](/example).
