@@ -85,7 +85,7 @@ export default class SearchInput extends Component {
       filterKeys,
       value,
       fuzzy,
-      ...inputProps,
+      ...inputProps
     } = this.props // eslint-disable-line no-unused-vars
     const {searchTerm} = this.state;
 
