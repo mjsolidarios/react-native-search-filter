@@ -8,7 +8,7 @@
 node_modules/
 npm-debug.log
 yarn-error.log
-
+yarn.lock
 
 # Xcode
 #
@@ -46,8 +46,9 @@ buck-out/
 
 
 # example directories
-example/node_modules
-example/.expo
+example-rn/node_modules
+example-expo/node_modules
+example-expo/.expo/*
 
 
 
