@@ -1,20 +1,20 @@
 {
   "name": "react-native-search-filter",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "React Native search component with filter function.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-add-module-exports": "^1.0.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "jest-expo": "~18.0.0",
-    "prop-types": "^15.6.2",
-    "react-native-scripts": "1.14.0",
-    "react-test-renderer": "16.4.1"
+    "jest-expo": "^34.0.1",
+    "prop-types": "^15.7.2",
+    "react-native-scripts": "^2.0.1",
+    "react-test-renderer": "^16.9.0"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,6 @@
   },
   "dependencies": {
     "diacritics": "^1.3.0",
-    "fuse.js": "^3.2.1"
+    "fuse.js": "^3.4.5"
   }
 }

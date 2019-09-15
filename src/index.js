@@ -1,19 +1,14 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import {
-  Keyboard,
-  TextInput,
-  TouchableOpacity,
-  View
-} from 'react-native'
-
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Keyboard, TextInput, TouchableOpacity, View } from 'react-native';
 import { createFilter } from './util';
+
 
 export default class SearchInput extends Component {
   static defaultProps = {
     caseSensitive: false,
     clearIcon: null,
-    clearIconViewStyles: {  position: 'absolute', top: 18,right: 22 },
+    clearIconViewStyles: { position: 'absolute', top: 18, right: 22 },
     fuzzy: false,
     inputViewStyles: {},
     onChange: () => { },
@@ -29,7 +24,7 @@ export default class SearchInput extends Component {
     this._keyboardDidHide = this._keyboardDidHide.bind(this)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
   }
 
@@ -37,18 +32,17 @@ export default class SearchInput extends Component {
     this.keyboardDidHideListener.remove();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.state.inputFocus !== nextProps.inputFocus) {
-      this.input.focus()
-    }
-    if (typeof nextProps.value !== 'undefined' && nextProps.value !== this.props.value) {
+  static getDerivedStateFromProps(props, state) {
+    if (typeof props.value !== 'undefined' && props.value !== state.value) {
       const e = {
         target: {
-          value: nextProps.value,
+          value: props.value,
         }
       }
       this.updateSearch(e)
     }
+
+    return null
   }
 
   _keyboardDidHide() {
@@ -145,4 +139,5 @@ SearchInput.propTypes = {
   value: PropTypes.string,
 }
 
-export { createFilter }
+export { createFilter };
+
