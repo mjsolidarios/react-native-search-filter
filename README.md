@@ -3,7 +3,7 @@
 
 React Native search component with filter function.
 
-![](https://media.giphy.com/media/l3JDnn1QT0ANhltKw/giphy.gif)
+![](https://media.giphy.com/media/Y4h9UMnbvmUAHdZ0gy/giphy.gif)
 
 ## Getting Started
 
@@ -24,7 +24,7 @@ Complete example available [here](/example).
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import SearchInput, { createFilter } from 'react-native-search-filter';
-import emails from './mails';
+import emails from './emails';
 const KEYS_TO_FILTERS = ['user.name', 'subject'];
 
 export default class App extends Component<{}> {
