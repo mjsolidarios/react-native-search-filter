@@ -131,7 +131,7 @@ SearchInput.propTypes = {
   filterKeys: PropTypes.oneOf([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   fuzzy: PropTypes.bool,
   inputFocus: PropTypes.bool,
-  inputViewStyles: PropTypes.object,
+  inputViewStyles: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   onChange: PropTypes.func,
   onSubmitEditing: PropTypes.func,
   sortResults: PropTypes.bool,
