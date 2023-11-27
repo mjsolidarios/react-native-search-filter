@@ -32,7 +32,7 @@ export default class SearchInput extends Component {
     this.keyboardDidHideListener.remove();
   }
 
-  static getDerivedStateFromProps(props, state) {
+  UNSAFE_componentWillReceiveProps(props, state) {
     if (typeof props.value !== 'undefined' && props.value !== state.value) {
       const e = {
         target: {
